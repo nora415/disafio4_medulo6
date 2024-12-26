@@ -1,0 +1,81 @@
+<div id="<%= dom_id article %>">
+
+  <div class="row">
+    <div class="col-3">
+      <div class="card">
+       <% if article.images.exists? %>
+          <%= image_tag article.images.first, class:"card-img-top w-75" %>
+       <% end %>
+
+ <div class="owner-avatar p-2">
+          <%= article.user.name %>
+        </div>
+        <h5 class="card-title p-2">Comentario del fotografo</h5>
+        <div class="card-text p-2">
+          <p><strong><%= article.comments %></strong></p>
+        </div>
+      </div>
+    </div>
+
+ <div class="col-7">
+      <div class="row">
+      <h5 class="card-title p-2">otras fotos</h5>
+        <% if article.images.exists? %>
+            <% article.images.each do |image| %>
+            <div class="col-5"><%= image_tag image, class:"w-75" %></div>
+          <% end %>       
+        <% end %>
+      </div>
+    </div>
+
+<%# #--------------  cometarios %>
+<% if user_signed_in? %>
+
+<% if article.comments.exists? %>
+        <p class="px-2"> <HR size="6" width="97%" align="center">  </p> 
+        <h3 class=" text-center">Comentarios </h3>
+
+<div class= "container"> 
+            <%= link_to "Retornar", article_path, class: "btn text-light bg-dark px-2 py-2 fw-lith mt-3" %>
+            <%= link_to "Eliminar", article_path, class: "btn text-light bg-dark px-2 py-2 fw-lith mt-3" %>
+            <%= link_to "Cometarios", comment_path, class: "btn text-light bg-dark px-2 py-2 fw-lith mt-3" %>
+            <%= link_to "Nueva comment", new_comment_path, class: "btn text-light bg-dark px-2 py-2 fw-lith mt-3"  %>
+        </div>
+
+<p class="px-2 mb-4"> <HR size="6" width="97%" align="center">  </p> 
+        <% article.comments.each do |comments| %>
+            <div class="container">
+              <div class="card">
+                  <%#= if comments.content.exists?  %>
+                    <p>Autor: <%= comments.user.name  %> </p>   
+                    <p>Comentario: <%= comments.content  %> </p> 
+  
+                          <%# image_tag User.first.avatar, class:"w-75" %>
+                            <% if comments.user.avatar.present? %>
+                             
+                            <%# if comments.user.avatar.exists? %>
+                              <div class="owner-avatar w-25% ">   
+                              <p>Usuario: <%= comments.user.id  %> 
+                                  <%= image_tag comments.user.avatar, size: "60x60" %>
+                                  </p> 
+                              </div>   
+                            <% else %>
+                            <p>Usuario: <%= comments.user.id  %> 
+                                No tienes foto de perfil</p> 
+                            <% end %>
+                            
+                        <% if user_signed_in? %>
+                        <%#= link_to "Editar", edit_comment_path(comments.id), class:"btn btn-dark" %>
+                    <% end %>            
+                    <p class="px-1"> <HR size="8" width="97%" align="center">  </p> 
+                  <%# else %>
+                    <%# <p>No existe comentarios</p> %>
+                  <%# end %>
+              </div>
+            </div>
+      <% end %> 
+
+  <% end %>
+<% end %>
+
+</div>

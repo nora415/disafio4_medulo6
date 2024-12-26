@@ -1,0 +1,13 @@
+<% content_for :title, "New comment" %>
+
+<h1>Nuevo Comentario </h1>
+
+<%= render "form", comment: @comment %>
+
+<br>
+
+<div>
+  <%#= link_to "Back to comment", comments_path %>
+  <%= link_to "Retornar", comments_path, class: "btn text-light bg-dark px-2 py-2 fw-lith mt-3" %>
+   <%= link_to "ver Foto ", comments_path, class: "btn text-light bg-dark px-2 py-2 fw-lith mt-3" %>
+</div>

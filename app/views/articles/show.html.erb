@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @article %>
+
+<div>
+ 
+  <%= link_to "Editar Foto ", edit_article_path(@article), class: "text-light bg-dark px-2 py-2 fw-lith mt-3" %>
+  <%# <%= link_to "Back to article", article_path %>
+  <%= link_to "Retornar", article_path, class: "btn text-light bg-dark px-2 py-2 fw-lith mt-3" %>
+
+ <% if user_signed_in? %>
+    <%= link_to "Eliminar", article_path, class: "btn text-light bg-dark px-2 py-2 fw-lith mt-3" %>
+    <%= link_to "Cometarios", comments_path, class: "btn text-light bg-dark px-2 py-2 fw-lith mt-3" %>
+    <%= link_to "Nueva comments", new_comment_path, class: "btn text-light bg-dark px-2 py-2 fw-lith mt-3"  %>
+  
+  <% end %>
+  
+  <%# <%= button_to "Destroy this article", @article, method: :delete %> 
+</div>

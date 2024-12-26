@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Comments" %>
+
+<h1>Comments</h1>
+
+<div id="comments">
+ <% if user_signed_in? %>
+<%#= link_to "Nueva comment", new_comment_path, class:"btn text-light bg-dark px-2 py-2 fw-lith mt-3" %>
+
+<% end %>
+  <% @comments.each do | comment | %>
+    <%= render comment %>
+    <p>
+    
+      <%#= link_to "ver comment", comment , class: "btn text-light bg-dark px-2 py-2 fw-lith mt-3"%>
+      <%= link_to "Ver comment", comment_path, class: "btn text-light bg-dark px-2 py-2 fw-lith mt-3" %>
+      <%= link_to "Retornar", comment_path, class: "btn text-light bg-dark px-2 py-2 fw-lith mt-3" %>
+    </p>
+
+  <% end %>
+
+</div>
+<% if user_signed_in? %>
+<%#= link_to "Nueva comment", new_comment_path, class:"btn text-light bg-dark px-2 py-2 fw-lith mt-3" %>
+
+<% end %>

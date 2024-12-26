@@ -1,0 +1,82 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "article" %>
+
+<h2> Espero te gusten las fotografias de KarinaPic </h2>
+
+<img src="https://www.gochile.cl/fotos/full/108841-tubing-1.jpg" class="rounded float-start px-2 py-2 fw-lith mt-3" alt="...">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<%= link_to "comentario", new_comment_path, class: "btn text-light bg-dark px-2 py-2 fw-lith mt-3"%>
+<br>
+<br>
+
+<img src="https://www.travesiatourchile.cl/wp-content/uploads/2018/05/2-3.jpg" class="rounded float-start px-2 py-2 fw-lith mt-3" alt="...">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<%= link_to "comentario", new_comment_path, class: "btn btn text-light bg-dark px-2 py-2 fw-lith mt-3" %>
+
+<div id="article">
+      <% @articles.each do | articles | %>
+        <%= render article %>
+        <p>
+          <%#= link_to "Show this article", article %>
+        
+          <%= link_to "ver Foto ", article, class: "btn btn text-light bg-dark px-2 py-2 fw-dark mt-3" %>
+        </p>
+      <% end %>
+</div>
+
+<%= link_to "Nueva Foto ", new_article_path, class: "btn btn text-light bg-dark px-2 py-2 fw-dark mt-3 " %>
